@@ -1,0 +1,23 @@
+.board {
+  div {
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+    height: 130px;
+
+    input[type="checkbox"] {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      appearance: none;
+      border: 1px solid #999;
+
+      &:checked {
+        background: white;
+        border: none;
+      }
+    }
+  }
+}
