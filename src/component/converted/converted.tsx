@@ -88,7 +88,7 @@ export default function Converted() {
       setConverted('D, d, 4, 초성 ㅍ, 파');
     }
     else if (filtering([1, 2, 5])) {
-      setConverted('M, m, ㅜ, ㅟ');
+      setConverted('M, m, ㅜ');
     }
     else if (filtering([1, 2, 6])) {
       setConverted('ㅠ')
@@ -121,7 +121,7 @@ export default function Converted() {
       setConverted('ㅡ')
     }
     else if (filtering([2, 4, 5])) {
-      setConverted('ㅑ, ㅒ')
+      setConverted('ㅑ')
     }
     else if (filtering([2, 4, 6])) {
       setConverted('것')
@@ -145,7 +145,7 @@ export default function Converted() {
       setConverted('G, g, 7, 운');
     }
     else if (filtering([1, 2, 3, 5])) {
-      setConverted('P, p, ㅞ');
+      setConverted('P, p');
     }
     else if (filtering([1, 2, 3, 6])) {
       setConverted('가')
@@ -160,13 +160,13 @@ export default function Converted() {
       setConverted('X, x, 옥');
     }
     else if (filtering([1, 3, 4, 5])) {
-      setConverted('R, r, ㅐ,ㅒ ㅟ, ㅙ, ㅞ');
+      setConverted('R, r');
     }
     else if (filtering([1, 3, 4, 6])) {
       setConverted('열')
     }
     else if (filtering([1, 3, 5, 6])) {
-      setConverted('V, v, ㅘ, ㅙ');
+      setConverted('V, v, ㅘ,');
     }
     else if (filtering([1, 4, 5, 6])) {
       setConverted('Z, z, 은');
