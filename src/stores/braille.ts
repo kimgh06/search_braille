@@ -6,7 +6,11 @@ type BrailleState = {
 };
 
 const useBrailleStore = create<BrailleState>((set) => ({
-  dots: [[false, false, false, false, false, false]],
+  dots: [
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+    [false, false, false, false, false, false],
+  ],
   setDots: (dots: boolean[][]) => {
     set({ dots });
   }
