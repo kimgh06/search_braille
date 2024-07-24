@@ -17,7 +17,7 @@ export default function InputBraille() {
     <div className="boards">
 
       {[...Array(cnt)].map((i, index) =>
-        <div className="oneboard">
+        <div className="oneboard" key={index}>
           <div>
             <input type="checkbox" checked={dots[index][0]} onChange={e => checking(index, 0)} />
             <input type="checkbox" checked={dots[index][1]} onChange={e => checking(index, 1)} />
