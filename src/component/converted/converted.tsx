@@ -8,14 +8,78 @@ export default function Converted() {
   const { dots } = useBrailleStore();
   const [converted, setConverted] = useState<string>('Gap');
   function filtering(index: number, arr: number[]): boolean {
-    let list = [false, false, false, false, false, false];
+    let list = [
+      [false, false, false, false, false, false],
+      [false, false, false, false, false, false],
+      [false, false, false, false, false, false]
+    ];
     for (let i = 0; i < arr.length; i++) {
-      list[arr[i] - 1] = true;
+      list[index][arr[i] - 1] = true;
     }
-    return (list[0] === dots[0][0]) && (list[1] === dots[0][1]) && (list[2] === dots[0][2]) && (list[3] === dots[0][3]) && (list[4] === dots[0][4]) && (list[5] === dots[0][5]);
+    return (list[index][0] === dots[index][0]) && (list[index][1] === dots[index][1]) && (list[index][2] === dots[index][2]) && (list[index][3] === dots[index][3]) && (list[index][4] === dots[index][4]) && (list[index][5] === dots[index][5]);
   }
   useEffect(() => {
-    if (filtering(0, [])) {
+    if (filtering(0, [6]) && filtering(1, [6]) && filtering(2, [6])) {
+      setConverted('말줄임표')
+    }
+    else if (filtering(0, [1, 2, 5]) && filtering(1, [1, 3, 4, 5])) {
+      setConverted('ㅟ')
+    }
+    else if (filtering(0, [2, 4, 5]) && filtering(1, [1, 3, 4, 5])) {
+      setConverted('ㅒ')
+    }
+    else if (filtering(0, [1, 3, 5, 6]) && filtering(1, [1, 3, 4, 5])) {
+      setConverted('ㅙ')
+    }
+    else if (filtering(0, [1, 2, 3, 5]) && filtering(1, [1, 3, 4, 5])) {
+      setConverted('ㅞ')
+    }
+    else if (filtering(0, [1]) && filtering(1, [2, 3, 5])) {
+      setConverted('그래서')
+    }
+    else if (filtering(0, [1]) && filtering(1, [1, 2])) {
+      setConverted('그러나')
+    }
+    else if (filtering(0, [1]) && filtering(1, [3, 4])) {
+      setConverted('그러면')
+    }
+    else if (filtering(0, [1]) && filtering(1, [3, 6])) {
+      setConverted('그러므로')
+    }
+    else if (filtering(0, [1]) && filtering(1, [1, 2, 4, 5])) {
+      setConverted('그런데')
+    }
+    else if (filtering(0, [1]) && filtering(1, [1, 5, 6])) {
+      setConverted('그리고')
+    }
+    else if (filtering(0, [1]) && filtering(1, [1, 4, 6])) {
+      setConverted('그리하여')
+    }
+    else if (filtering(0, [6]) && filtering(1, [3, 5, 6])) {
+      setConverted('열린 \'')
+    }
+    else if (filtering(0, [4, 5, 6]) && filtering(1, [5])) {
+      setConverted('닫힌 \'')
+    }
+    else if (filtering(0, [5, 6]) && filtering(1, [5, 6])) {
+      setConverted('~')
+    }
+    else if (filtering(0, [4]) && filtering(1, [3])) {
+      setConverted(':')
+    }
+    else if (filtering(0, [4, 6]) && filtering(1, [3, 5])) {
+      setConverted(';')
+    }
+    else if (filtering(0, [6]) && filtering(1, [5, 6])) {
+      setConverted('밑줄 시작')
+    }
+    else if (filtering(0, [5, 6]) && filtering(1, [5])) {
+      setConverted('밑줄 종료')
+    }
+    else if (filtering(0, [4, 5]) && filtering(1, [4, 5])) {
+      setConverted('※')
+    }
+    else if (filtering(0, [])) {
       setConverted('Gap');
     }
     else if (filtering(0, [1])) {
@@ -70,7 +134,7 @@ export default function Converted() {
       setConverted('종성 ㅊ');
     }
     else if (filtering(0, [3, 6])) {
-      setConverted('(+)')
+      setConverted('종성 ㅁ, (+)')
     }
     else if (filtering(0, [4, 5])) {
       setConverted('(-), 종성 ㄷ');
@@ -79,7 +143,7 @@ export default function Converted() {
       setConverted('초성 ㅊ');
     }
     else if (filtering(0, [5, 6])) {
-      setConverted('(-), 소괄호 표기 (), 두 번 반복 (~)')
+      setConverted('(-), 소괄호 표기 ()')
     }
     else if (filtering(0, [1, 2, 3])) {
       setConverted('F, f, 6, 초성 ㅋ, 카');
