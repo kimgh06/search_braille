@@ -239,7 +239,7 @@ export default function Converted() {
       setConverted('T, t, 얼');
     }
     else if (filtering(0, [2, 3, 4, 6])) {
-      setConverted('W, w');
+      setConverted('W, w, ㅢ');
     }
     else if (filtering(0, [2, 3, 5, 6])) {
       setConverted('을')
